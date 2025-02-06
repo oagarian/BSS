@@ -1,1 +1,3 @@
-codigo,dia_da_semana,horario,tipo_servico,valor_servico
+codigo,dia_da_semana,horario,tipo_servico,codigo_funcionario,valor_servico
+
+2IY9,Terça-feira,09:00,Pedicure,1,20.0

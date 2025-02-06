@@ -5,12 +5,18 @@ from rich.prompt import Prompt
 from rich.console import Console
 from rich.panel import Panel
 from rich.text import Text
+import random
+import string
+
+def gerar_codigo_unico(tamanho=4):
+    caracteres = string.ascii_uppercase + string.digits
+    return ''.join(random.choices(caracteres, k=tamanho))
 
 def initialize_csv():
     if not os.path.exists("db/"):
         os.makedirs("db/")
     if not os.path.exists("db/horarios.csv"):
-        pd.DataFrame(columns=["codigo", "dia_da_semana", "horario", "tipo_servico", "valor_servico"]).to_csv("db/horarios.csv", index=False)
+        pd.DataFrame(columns=["codigo", "dia_da_semana", "horario", "tipo_servico", "codigo_funcionario", "valor_servico"]).to_csv("db/horarios.csv", index=False)
     if not os.path.exists("db/funcionarios.csv"):
         pd.DataFrame([
             {"codigo": "001", "nome": "Lucineide"},
@@ -149,34 +155,109 @@ def ver_agendamento():
     print("Função de ver agendamento ainda não implementada.")
 
 def mostrar_servicos():
-    while True:
-        servicos = pd.read_csv("db/servicos.csv")
-        funcionarios = pd.read_csv("db/funcionarios.csv")
-
-        funcionarios_dict = {funcionario["codigo"]: funcionario["nome"] for _, funcionario in funcionarios.iterrows()}
-
-        panel_content = Text()
-        panel_content.append(f"--- Escolha o serviço desejado ---\n", style="light_goldenrod3")
-
-        for index, servico in servicos.iterrows():
-            panel_content.append(f"{index + 1}. ", style="sandy_brown")
-            panel_content.append(f"{servico['servico']} - R${servico['valor']}"
-                                f"\nResponsável: {funcionarios_dict.get(servico['codigo_funcionario'], 'Funcionário não encontrado')}\n")
-        
-        panel_content.append("0. ", style="dark_orange3")
-        panel_content.append("Voltar ao menu do cliente\n")
-
-        console.print(Panel(panel_content, title="Serviços Disponíveis", border_style="pink3", padding=[0, 12]))
-
-        choice = input("Escolha uma opção [0/1/2/3] (0): ").strip()
-
-        if choice == "0":
-            break
+    servicos = pd.read_csv("db/servicos.csv")
+    funcionarios = pd.read_csv("db/funcionarios.csv")
+    funcionarios_dict = {funcionario["codigo"]: funcionario["nome"] for _, funcionario in funcionarios.iterrows()}
+    panel_content = Text()
+    panel_content.append(f"--- Escolha o serviço desejado ---\n", style="light_goldenrod3")
+    for index, servico in servicos.iterrows():
+        panel_content.append(f"{index + 1}. ", style="sandy_brown")
+        panel_content.append(f"{servico['servico']} - R${servico['valor']}"
+                            f"\nResponsável: {funcionarios_dict.get(servico['codigo_funcionario'], 'Funcionário não encontrado')}\n")
     
-def ver_horarios_disponiveis(dia, servico): 
-    print("A implementar")
+    panel_content.append("0. ", style="dark_orange3")
+    panel_content.append("Voltar ao menu do cliente\n")
+    console.print(Panel(panel_content, title="Serviços Disponíveis", border_style="pink3", padding=[0, 12]))
+
+    
+def ver_horarios_disponiveis(dia, servico, codigo_funcionario):
+    horarios = pd.read_csv("db/horarios.csv")
+    horarios_disponiveis = []
+
+    horarios_permitidos = ["08:00", "09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"]
+
+    for horario in horarios_permitidos:
+        agendamentos = horarios[(horarios["dia_da_semana"] == dia) & (horarios["horario"] == horario)]
+
+        if len(agendamentos) < 2 and not agendamentos["codigo_funcionario"].eq(codigo_funcionario).any():
+            horarios_disponiveis.append(horario)
+
+    return horarios_disponiveis
+
+
 def agendar_horario():
-    mostrar_servicos()
+    servicos = pd.read_csv("db/servicos.csv")
+    funcionarios = pd.read_csv("db/funcionarios.csv")
+    funcionarios_dict = {funcionario["codigo"]: funcionario["nome"] for _, funcionario in funcionarios.iterrows()}
+
+    while True:
+        mostrar_servicos()
+        try:
+            escolha = int(input("Escolha algum serviço (0 para voltar): ").strip())
+            if escolha == 0:
+                break
+            if escolha < 1 or escolha > len(servicos):
+                console.print("[red]Opção inválida. Tente novamente.[/red]")
+                continue
+        except ValueError:
+            console.print("[red]Entrada inválida. Digite um número válido.[/red]")
+            continue
+
+        servico_selecionado = servicos.iloc[escolha - 1]
+        nome_servico = servico_selecionado["servico"]
+        codigo_funcionario = servico_selecionado["codigo_funcionario"]
+        nome_funcionario = funcionarios_dict.get(codigo_funcionario, "Funcionário não encontrado")
+        dias_semana = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
+
+        for i, dia in enumerate(dias_semana, start=1):
+            print(f"{i} - {dia}")
+
+        
+        while True:
+            dia_escolhido = int(input("Digite o número correspondente ao dia: "))
+            if 1 <= dia_escolhido <= 7:
+                dia = dias_semana[dia_escolhido - 1]
+                print(f"Você escolheu: {dia}")
+                break
+            else:
+                print("Escolha inválida!")
+        horarios_disponiveis = ver_horarios_disponiveis(dia, nome_servico, codigo_funcionario)
+
+        if not horarios_disponiveis:
+            console.print("[yellow]Não há horários disponíveis para este dia.[/yellow]")
+            continue
+
+        console.print(f"[bold green]Horários disponíveis para {nome_servico} com {nome_funcionario} no dia {dia}:[/bold green]")
+        for i, horario in enumerate(horarios_disponiveis, start=1):
+            console.print(f"{i}. {horario}")
+
+        while True:
+            try:
+                escolha_horario = int(input("Escolha o número do horário desejado: ").strip())
+                if escolha_horario < 1 or escolha_horario > len(horarios_disponiveis):
+                    console.print("[red]Opção inválida. Tente novamente.[/red]")
+                break
+            except ValueError:
+                console.print("[red]Entrada inválida. Digite um número válido.[/red]")
+                
+
+        horario_selecionado = horarios_disponiveis[escolha_horario - 1]
+
+        codigo_horario = gerar_codigo_unico()
+        # Salvar o agendamento no arquivo CSV
+        novo_agendamento = pd.DataFrame([{
+            "codigo": codigo_horario,
+            "dia_da_semana": dia,
+            "horario": horario_selecionado,
+            "tipo_servico": nome_servico,
+            "codigo_funcionario": codigo_funcionario,
+            "valor_servico": servico_selecionado["valor"],
+        }])
+        novo_agendamento.to_csv("db/horarios.csv", mode='a', header=False, index=False)
+        console.print(f"[bold green]Agendamento para {nome_servico} às {horario_selecionado} no dia {dia} foi concluído com sucesso![/bold green]"
+                      f"[red]\nCÓDIGO DE AGENDAMENTO: {codigo_horario}[/red]")
+        break
+
 
 def editar_agendamento():
     print("Função de editar agendamento ainda não implementada.")
