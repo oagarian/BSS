@@ -1,0 +1,16 @@
+servico,codigo_funcionario,valor
+Manicure,001,20.0
+Pedicure,001,20.0
+Esmaltação em gel,001,90.0
+Design de sobrancelhas,002,30.0
+Henna,002,40.0
+Micropigmentação,002,350.0
+Massagem,003,100.0
+Limpeza de pele,003,120.0
+Epilação,003,150.0
+Brow lamination,004,150.0
+Extensão de cílios,004,250.0
+Lash lifting,004,180.0
+Tranças,005,300.0
+Penteados,005,80.0
+Maquiagem,005,80.0

@@ -1,0 +1,65 @@
+O plano atual é:
+Lista de serviços possíveis:
+- Manicure
+- Pedicure
+- Esmaltação em gel
+- Design de sobrancelhas
+- Henna 
+- Micropigmentação
+- Brow lamination
+- Epilação
+- Penteados
+- Maquiagem
+- Tranças 
+- Extensão de cílios 
+- lash lifting
+- Limpeza de pele
+- Massagem
+Obs: Para cada um dos funcionarios, atribua 3 serviços possiveis.
+
+Lista de horário:
+1. 4 horários das 8 até as 12
+2. 6 horários das 14 até as 20
+3. Para cada horário, é possível atribuir até 2 serviços simultaneos, ou seja, serviço 1 e 5 podendo ser feito no mesmo horário, etc. Ou seja, para cada um dos horário, pode ter até 2 serviços marcados. Caso o usuário escolha por exemplo, 3 serviços na hora de agendar um horário, ele terá de escolher um horário que tenha 3 horários consecutivos liberados
+
+Banco de dados:
+O sistema usará um arquivo .csv como banco de dados, e para as transformações dinâmicas usará o pandas.
+1. Tabela de horário terá: dia_da_semana, horario, tipo_servico, valor_servico, codigo
+2. Tabela de funcionario terá: codigo, nome, servicos_possiveis
+2.2. Os funcionários serão:
+* 001 - Lucineide
+* 002 - Marilucia
+* 003 - José Maria
+* 004 - Maria José
+3. Tabela de movimentacao de caixa terá: tipo(podendo ser atribuicao ou retirada), dia_da_semana, valor, codigo_funcionario, justificativa
+4. Tabela de compras: produto, quantidade_necessaria
+
+Sistema:
+Ao entrar no sistema, o usuário informa se é um cliente ou um funcionário, ou sair do sistema, caso seja cliente:
+Ele poderá entrar no sistema e:
+0. Sair do sistema
+1. Ver informações de um agendamento
+O usuário informará o código do agendamento para ver os detalhes, tais como: dia da semana, horário, tipo de serviço
+2. Agendar um horário
+O sistema informará os serviços disponíveis para o usuário decidir qual ou quais quer, nisso, escolherá também o dia, 
+o sistema consultará no banco os horário disponíveis para esse dia da semana, utilizando-se da regra 3 do sistema de horários, 
+e informará ao usuário, dando a ele a opção de escolher qual horário. Ao escolher um horário, o sistema retornará um código de horário para o usuário, 
+caso o usuário escolha mais de um serviços, retornará um código para cada serviço, informando o tipo de código e o tipo de serviço, e salvará o horário no sistema.
+3. Editar um agendamento
+O usuário informará o código de agendamento e poderá alterar seu horário no banco de dados. 
+4. Apagar um agendamento
+O usuário informará o código de agendamento para apagar um agendamento do banco de dados, o sistema perguntará se ele deseja realmente apagar, e então, apagará no banco de dados.
+
+Caso seja funcionário, ele:
+1. Terá de informar a senha "funcionario123" para acessar o sistema como funcionário.
+2. Controle de usuário
+2.1. Ele poderá realizar tudo que um usuário comum consegue.
+3. Funções específicas
+3.1. Ele informará o(s) código(s) do agendamento, e informará quanto recebeu e seu codigo de funcionario, assim o sistema calculará o troco, e salvará no banco de controle de caixa, com o campo de justificativa sendo o nome do serviço.
+3.2. Ele poderá gerar um relatório de fechamento de caixa, informando quanto deve ter de dinheiro naquele dia para cada nome de funcionario, que ele pegará fazendo uma "query" via o código de funcionário asociado a movimentacao de caixa, e o nome do funcionario na tabela de funcionario.
+3.3. Ele também poderá informar uma quantidade retirada do caixa, tendo de informar seu codigo de funcionario, quanto retirou, e o motivo.
+3.4. Ele poderá informar quais itens estão em falta no estoque, e salvar no banco.
+3.5. Ele poderá gerar uma lista de compras de produtos. Ao gerar a lista, os itens irão do status "FALTANDO" para "COMPRADO", semelhante um softdelete.
+3.6. Gerar um relatório de serviços mais procurados no quesito porcentagem.
+
+Obs: Para cada menu que aparecer, ele deve ter a opção de sair desse menu.
