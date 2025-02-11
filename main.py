@@ -152,7 +152,31 @@ def funcionario_menu():
 
 # Placeholder para funções ainda a serem implementadas
 def ver_agendamento():
-    print("Função de ver agendamento ainda não implementada.")
+    funcionarios = pd.read_csv("db/funcionarios.csv")
+    funcionarios_dict = {str(funcionario["codigo"]): funcionario["nome"] for _, funcionario in funcionarios.iterrows()}    
+    codigo = input("Informe o código de agendamento:")
+    horarios = pd.read_csv("db/horarios.csv")
+    horario = horarios[horarios['codigo'] == codigo]
+    if horario.empty: 
+        print("Código inválido. Verifique e tente novamente.")
+    else:
+        nome_funcionario = funcionarios_dict.get(horario["codigo_funcionario"].to_string(index=False), "Funcionário não encontrado")
+        panel_content = Text()
+        panel_content.append("\n--- Pressione \"Enter\" para sair ---\n", style="light_goldenrod3")
+        panel_content.append("CÓDIGO: ", style="sandy_brown")
+        panel_content.append(f"{horario['codigo'].to_string(index=False)}\n")
+        panel_content.append("DIA DA SEMANA: ", style="sandy_brown")
+        panel_content.append(f"{horario['dia_da_semana'].to_string(index=False)}\n")
+        panel_content.append("HORÁRIO: ", style="sandy_brown")
+        panel_content.append(f"{horario['horario'].to_string(index=False)}\n")
+        panel_content.append("TIPO DE SERVIÇO: ", style="sandy_brown")
+        panel_content.append(f"{horario['tipo_servico'].to_string(index=False)}\n")
+        panel_content.append("RESPONSÁVEL: ", style="sandy_brown")
+        panel_content.append(f"{nome_funcionario}\n")
+        panel_content.append("VALOR: ", style="sandy_brown")
+        panel_content.append(f"R${horario['valor_servico'].to_string(index=False)}\n")
+        console.print(Panel(panel_content, title="Informações sobre agendamento", border_style="light_pink3", padding=[0,14]))
+
 
 def mostrar_servicos():
     servicos = pd.read_csv("db/servicos.csv")
