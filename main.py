@@ -1,5 +1,7 @@
+import locale
 import sys
 import time
+import datetime
 import pandas as pd
 import os
 import getpass
@@ -10,6 +12,8 @@ from rich.text import Text
 import random
 import string
 import db
+
+locale.setlocale(locale.LC_TIME, "pt_BR.utf8")
 def gerar_codigo_unico(tamanho=4):
     caracteres = string.ascii_uppercase + string.digits
     return ''.join(random.choices(caracteres, k=tamanho))
@@ -126,8 +130,10 @@ def funcionario_menu():
         panel_content.append("1. ", style="sandy_brown")
         panel_content.append("Finalizar serviço\n")
         panel_content.append("2. ", style="sandy_brown")
-        panel_content.append("Relatórios\n")
+        panel_content.append("Fazer retirada de caixa\n")
         panel_content.append("3. ", style="sandy_brown")
+        panel_content.append("Relatórios\n")
+        panel_content.append("4. ", style="sandy_brown")
         panel_content.append("Controle de Estoque\n")
         panel_content.append("0. ", style="dark_orange3")
         panel_content.append("Voltar ao menu principal\n")
@@ -141,8 +147,10 @@ def funcionario_menu():
         elif choice == "1":
             finalizar_servico()
         elif choice == "2":
-            gerar_relatorios()
+            registrar_retirada_caixa()
         elif choice == "3":
+            gerar_relatorios()
+        elif choice == "4":
             controle_estoque()
         else:
             console.print("[red]Opção inválida. Tente novamente.[/red]")
@@ -323,7 +331,26 @@ def finalizar_servico():
         console.print("[bold green]Serviço finalizado com sucesso![/bold green]")
 
 def registrar_retirada_caixa():
-    print("BLALBALBLALBLALBALBLALBLA")
+    codigo = Prompt.ask("[light_goldenrod3]Informe o código do funcionário[/light_goldenrod3]")
+
+    funcionarios = pd.read_csv("db/funcionarios.csv")
+    codigo = str(codigo).zfill(3)
+    funcionario = funcionarios[funcionarios["codigo"] == codigo]
+    if funcionario.empty:
+        console.print("[dark_orange3]Código errado. Tente novamente.[/dark_orange3]")
+        return
+    retirada = float(Prompt.ask("[light_goldenrod3]Qual o valor desejado?[/light_goldenrod3]"))
+    justificativa = Prompt.ask("[light_goldenrod3]Para quê o valor está sendo retirado?[/light_goldenrod3]")
+    dia_semana = datetime.now().strftime("%A")
+    db.registrar_movimentacao(
+        "RETIRADA",
+        dia_semana,
+        retirada, 
+        codigo, 
+        justificativa
+    )
+    console.print("[bold green]Retirada efetuada com sucesso![/bold green]")
+
 def gerar_relatorios():
     print("Função de gerar relatórios ainda não implementada.")
 
