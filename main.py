@@ -1,7 +1,7 @@
 import locale
 import sys
 import time
-import datetime
+from datetime import date
 import pandas as pd
 import os
 import getpass
@@ -12,6 +12,7 @@ from rich.text import Text
 import random
 import string
 import db
+import matplotlib.pyplot as plt
 
 locale.setlocale(locale.LC_TIME, "pt_BR.utf8")
 def gerar_codigo_unico(tamanho=4):
@@ -306,29 +307,33 @@ def apagar_agendamento():
     else:
         console.print("[red]Agendamento não encontrado. Tente novamente.[/red]")
 
+dias_semana = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
 
 def finalizar_servico():
     codigo = Prompt.ask("[light_goldenrod3]Informe o código do agendamento[/light_goldenrod3]")
-    
     agendamentos = pd.read_csv("db/horarios.csv")
     agendamento = agendamentos[agendamentos["codigo"] == codigo]
-    if not agendamento.empty:
-        ver_informacoes_agendamento(codigo)
+    if agendamento.empty:
+        console.print("[red]Agendamento não encontrado. Tente novamente.[/red]")
+        return
+    ver_informacoes_agendamento(codigo)
     valor_pago = float(Prompt.ask("[light_goldenrod3]Informe o valor pago pelo serviço.[/light_goldenrod3]"))
     troco = valor_pago - float(agendamento["valor_servico"].to_string(index=False))
     console.print(f"[bold green]Troco: R${troco}[/bold green]")
     finalizar = Confirm.ask("[dark_orange3]Finalizar serviço?[/dark_orange3]")
+    dia_semana = dias_semana[date.today().weekday()]
     if finalizar:
         agendamentos.drop(agendamento.index, inplace=True)
         agendamentos.to_csv("db/horarios.csv", index=False)
         db.registrar_movimentacao(
             "PAGAMENTO",
-            agendamento['dia_da_semana'].to_string(index=False),
+            dia_semana,
             float(agendamento['valor_servico'].to_string(index=False)),
             agendamento['codigo_funcionario'].to_string(index=False),
             agendamento['tipo_servico'].to_string(index=False),
         )
         console.print("[bold green]Serviço finalizado com sucesso![/bold green]")
+
 
 def registrar_retirada_caixa():
     codigo = Prompt.ask("[light_goldenrod3]Informe o código do funcionário[/light_goldenrod3]")
@@ -340,7 +345,7 @@ def registrar_retirada_caixa():
         return
     retirada = float(Prompt.ask("[light_goldenrod3]Qual o valor desejado?[/light_goldenrod3]"))
     justificativa = Prompt.ask("[light_goldenrod3]Para quê o valor está sendo retirado?[/light_goldenrod3]")
-    dia_semana = datetime.now().strftime("%A")
+    dia_semana = dias_semana[date.today().weekday()]
     db.registrar_movimentacao(
         "RETIRADA",
         dia_semana,
@@ -350,8 +355,79 @@ def registrar_retirada_caixa():
     )
     console.print("[bold green]Retirada efetuada com sucesso![/bold green]")
 
+def relatorio_diario():
+    dias_semana = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
+    dia_semana = dias_semana[date.today().weekday()]
+    print(dia_semana)
+    
+    df = pd.read_csv("db/movimentacao_caixa.csv")
+
+    funcionarios = pd.read_csv("db/funcionarios.csv")
+    funcionarios_dict = {funcionario["codigo"]: funcionario["nome"] for _, funcionario in funcionarios.iterrows()}
+    df["nome_funcionario"] = df["codigo_funcionario"].map(funcionarios_dict)
+    
+    df["dia_da_semana"] = df["dia_da_semana"].str.strip().str.capitalize()
+
+    df_diario = df[(df['dia_da_semana'] == dia_semana) & (df["tipo"] != "RETIRADA")]
+    
+    lucro_funcionario = df_diario.groupby("nome_funcionario")["valor"].sum()
+    total_diario = df[(df["dia_da_semana"] == dia_semana) & (df["tipo"] != "RETIRADA")]["valor"].sum()
+    
+    fig, ax = plt.subplots()
+    lucro_funcionario.plot(kind="bar", ax=ax, color='#006400')
+    ax.set_title(f"Faturamento Diário - {dia_semana}")
+    ax.axhline(y=total_diario, color='#FFFFFF', linestyle='--', label=f'Total: {total_diario}')
+    ax.set_xlabel('Funcionário')
+    ax.set_ylabel('Faturamento')
+
+    plt.xticks(rotation=0)
+    plt.tight_layout()
+    ax.legend()
+
+    plt.savefig(f"relatorios/{dia_semana}.png")
+    plt.show()
+
+def relatorio_semanal():
+    dia_semana = dias_semana[date.today().weekday()]
+    df = pd.read_csv("db/movimentacao_caixa.csv")
+    funcionarios = pd.read_csv("db/funcionarios.csv")
+    funcionarios_dict = {funcionario["codigo"]: funcionario["nome"] for _, funcionario in funcionarios.iterrows()}
+    df["nome_funcionario"] = df["codigo_funcionario"].map(funcionarios_dict)
+
+    df["dia_da_semana"] = pd.Categorical(df["dia_da_semana"], categories=dias_semana, ordered=True)
+    df_semanal = df[df["tipo"] != "RETIRADA"]
+
+    lucro_funcionario_semanal = df_semanal.groupby(["dia_da_semana", "nome_funcionario"])["valor"].sum().unstack(fill_value=0)
+    lucro_total_semanal = df_semanal.groupby("dia_da_semana")["valor"].sum()
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    lucro_funcionario_semanal.plot(kind="line", ax=ax, marker="o")
+
+    lucro_total_semanal.plot(kind="line", ax=ax, color="black", linestyle="--", label="Total Semanal")
+    
+    ax.set_title("Faturamento Semanal")
+    ax.set_xlabel('Dia da Semana')
+    ax.set_ylabel('Faturamento')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    ax.legend()
+
+    plt.savefig(f"relatorios/semanal.png")
+    plt.show()
+
 def gerar_relatorios():
-    print("Função de gerar relatórios ainda não implementada.")
+    while True:
+        relatorio_escolhido = Prompt.ask(
+            "Qual relatório deseja gerar?",
+            choices=["Diário", "Semanal"],
+            default="Diário"
+        )
+        if relatorio_escolhido == "Diário":
+            relatorio_diario()
+        elif relatorio_escolhido == "Semanal":
+            relatorio_semanal()
+        else:
+            break
 
 def controle_estoque():
     print("Função de controle de estoque ainda não implementada.")
