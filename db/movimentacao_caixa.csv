@@ -1,301 +1,304 @@
 tipo,dia_da_semana,valor,codigo_funcionario,justificativa
-PAGAMENTO,Segunda-feira,21.61,002,Manicure
-PAGAMENTO,Sábado,86.09,005,Manicure
-PAGAMENTO,Domingo,78.97,001,Manicure
-PAGAMENTO,Quinta-feira,78.11,003,Manicure
-PAGAMENTO,Quarta-feira,85.02,001,Manicure
-PAGAMENTO,Sábado,81.16,002,Manicure
-PAGAMENTO,Sábado,15.43,004,Manicure
-PAGAMENTO,Quarta-feira,86.48,002,Manicure
-PAGAMENTO,Quinta-feira,67.78,004,Manicure
-PAGAMENTO,Domingo,85.59,004,Manicure
-PAGAMENTO,Terça-feira,84.27,003,Manicure
-PAGAMENTO,Segunda-feira,95.96,002,Manicure
-PAGAMENTO,Quinta-feira,51.63,001,Manicure
-PAGAMENTO,Segunda-feira,53.84,002,Manicure
-PAGAMENTO,Sexta-feira,38.94,002,Manicure
-PAGAMENTO,Sábado,82.42,001,Manicure
-PAGAMENTO,Domingo,31.41,002,Manicure
-PAGAMENTO,Domingo,83.92,005,Manicure
-PAGAMENTO,Quinta-feira,10.56,003,Manicure
-PAGAMENTO,Sábado,60.21,003,Manicure
-PAGAMENTO,Domingo,28.26,005,Manicure
-PAGAMENTO,Sábado,80.09,002,Manicure
-PAGAMENTO,Quinta-feira,42.27,005,Manicure
-PAGAMENTO,Sexta-feira,32.44,001,Manicure
-PAGAMENTO,Sábado,12.83,003,Manicure
-PAGAMENTO,Sexta-feira,16.91,005,Manicure
-PAGAMENTO,Quinta-feira,49.1,001,Manicure
-PAGAMENTO,Terça-feira,69.17,002,Manicure
-PAGAMENTO,Sexta-feira,94.56,003,Manicure
-PAGAMENTO,Sábado,75.6,005,Manicure
-PAGAMENTO,Domingo,95.86,002,Manicure
-PAGAMENTO,Segunda-feira,33.45,003,Manicure
-PAGAMENTO,Sexta-feira,76.82,003,Manicure
-PAGAMENTO,Quinta-feira,50.1,004,Manicure
-PAGAMENTO,Segunda-feira,81.5,004,Manicure
-PAGAMENTO,Sexta-feira,53.63,001,Manicure
-PAGAMENTO,Quarta-feira,86.43,004,Manicure
-PAGAMENTO,Domingo,80.79,003,Manicure
-PAGAMENTO,Segunda-feira,81.65,005,Manicure
-PAGAMENTO,Sexta-feira,48.5,002,Manicure
-PAGAMENTO,Quarta-feira,92.15,001,Manicure
-PAGAMENTO,Sexta-feira,80.18,004,Manicure
-PAGAMENTO,Terça-feira,76.18,005,Manicure
-PAGAMENTO,Sábado,85.38,004,Manicure
-PAGAMENTO,Quinta-feira,14.42,001,Manicure
-PAGAMENTO,Quarta-feira,97.74,005,Manicure
-PAGAMENTO,Terça-feira,54.69,003,Manicure
-PAGAMENTO,Sexta-feira,73.12,003,Manicure
-PAGAMENTO,Quarta-feira,44.42,005,Manicure
-PAGAMENTO,Sexta-feira,71.16,003,Manicure
-PAGAMENTO,Segunda-feira,26.53,003,Manicure
-PAGAMENTO,Segunda-feira,78.62,005,Manicure
-PAGAMENTO,Domingo,82.45,005,Manicure
-PAGAMENTO,Domingo,94.43,005,Manicure
-PAGAMENTO,Quinta-feira,72.09,005,Manicure
-PAGAMENTO,Domingo,49.69,001,Manicure
-PAGAMENTO,Segunda-feira,65.52,001,Manicure
-PAGAMENTO,Segunda-feira,21.08,005,Manicure
-PAGAMENTO,Sábado,92.02,001,Manicure
-PAGAMENTO,Quinta-feira,44.6,003,Manicure
-PAGAMENTO,Quarta-feira,37.69,002,Manicure
-PAGAMENTO,Quinta-feira,37.26,002,Manicure
-PAGAMENTO,Quinta-feira,89.97,001,Manicure
-PAGAMENTO,Quinta-feira,13.09,001,Manicure
-PAGAMENTO,Sexta-feira,68.97,001,Manicure
-PAGAMENTO,Quinta-feira,23.28,002,Manicure
-PAGAMENTO,Quarta-feira,90.17,004,Manicure
-PAGAMENTO,Quarta-feira,64.65,005,Manicure
-PAGAMENTO,Quarta-feira,37.54,005,Manicure
-PAGAMENTO,Sábado,96.4,001,Manicure
-PAGAMENTO,Terça-feira,39.4,002,Manicure
-PAGAMENTO,Terça-feira,25.54,004,Manicure
-PAGAMENTO,Sábado,82.35,003,Manicure
-PAGAMENTO,Sexta-feira,77.03,001,Manicure
-PAGAMENTO,Sábado,19.32,002,Manicure
-PAGAMENTO,Domingo,99.85,003,Manicure
-PAGAMENTO,Segunda-feira,50.01,004,Manicure
-PAGAMENTO,Sexta-feira,37.49,003,Manicure
-PAGAMENTO,Terça-feira,79.8,002,Manicure
-PAGAMENTO,Domingo,51.91,004,Manicure
-PAGAMENTO,Quinta-feira,66.51,002,Manicure
-PAGAMENTO,Sexta-feira,53.48,001,Manicure
-PAGAMENTO,Domingo,55.92,002,Manicure
-PAGAMENTO,Quinta-feira,69.78,001,Manicure
-PAGAMENTO,Sábado,20.52,003,Manicure
-PAGAMENTO,Quinta-feira,98.08,002,Manicure
-PAGAMENTO,Segunda-feira,14.13,003,Manicure
-PAGAMENTO,Quinta-feira,29.49,004,Manicure
-PAGAMENTO,Sexta-feira,13.04,001,Manicure
-PAGAMENTO,Quinta-feira,26.26,003,Manicure
-PAGAMENTO,Quarta-feira,27.94,001,Manicure
-PAGAMENTO,Sábado,92.54,001,Manicure
-PAGAMENTO,Terça-feira,94.74,004,Manicure
-PAGAMENTO,Domingo,75.9,005,Manicure
-PAGAMENTO,Sábado,23.54,004,Manicure
-PAGAMENTO,Quarta-feira,53.69,001,Manicure
-PAGAMENTO,Segunda-feira,12.61,001,Manicure
-PAGAMENTO,Terça-feira,24.94,002,Manicure
-PAGAMENTO,Quinta-feira,30.33,005,Manicure
-PAGAMENTO,Domingo,37.96,002,Manicure
-PAGAMENTO,Domingo,48.58,004,Manicure
-PAGAMENTO,Sábado,12.04,002,Manicure
-PAGAMENTO,Quinta-feira,48.15,001,Manicure
-PAGAMENTO,Quinta-feira,37.69,001,Manicure
-PAGAMENTO,Terça-feira,70.67,005,Manicure
-PAGAMENTO,Segunda-feira,26.35,001,Manicure
-PAGAMENTO,Segunda-feira,30.81,001,Manicure
-PAGAMENTO,Domingo,99.75,003,Manicure
-PAGAMENTO,Sexta-feira,10.37,005,Manicure
-PAGAMENTO,Domingo,40.36,005,Manicure
-PAGAMENTO,Terça-feira,38.12,005,Manicure
-PAGAMENTO,Sábado,47.55,003,Manicure
-PAGAMENTO,Sexta-feira,52.68,003,Manicure
-PAGAMENTO,Segunda-feira,89.84,003,Manicure
-PAGAMENTO,Quinta-feira,59.22,003,Manicure
-PAGAMENTO,Terça-feira,86.3,005,Manicure
-PAGAMENTO,Sábado,18.28,001,Manicure
-PAGAMENTO,Sábado,11.57,005,Manicure
-PAGAMENTO,Quinta-feira,35.16,002,Manicure
-PAGAMENTO,Terça-feira,91.98,002,Manicure
-PAGAMENTO,Sexta-feira,98.55,005,Manicure
-PAGAMENTO,Domingo,62.72,003,Manicure
-PAGAMENTO,Quinta-feira,30.59,001,Manicure
-PAGAMENTO,Domingo,59.37,002,Manicure
-PAGAMENTO,Segunda-feira,86.11,003,Manicure
-PAGAMENTO,Segunda-feira,99.19,004,Manicure
-PAGAMENTO,Segunda-feira,20.12,002,Manicure
-PAGAMENTO,Quarta-feira,76.72,004,Manicure
-PAGAMENTO,Sábado,38.16,004,Manicure
-PAGAMENTO,Quinta-feira,44.17,001,Manicure
-PAGAMENTO,Domingo,41.12,001,Manicure
-PAGAMENTO,Terça-feira,68.84,004,Manicure
-PAGAMENTO,Sábado,80.77,004,Manicure
-PAGAMENTO,Quarta-feira,22.4,001,Manicure
-PAGAMENTO,Terça-feira,98.52,002,Manicure
-PAGAMENTO,Quinta-feira,38.12,004,Manicure
-PAGAMENTO,Quinta-feira,31.63,002,Manicure
-PAGAMENTO,Quarta-feira,49.62,001,Manicure
-PAGAMENTO,Quarta-feira,65.81,001,Manicure
-PAGAMENTO,Terça-feira,29.15,004,Manicure
-PAGAMENTO,Domingo,38.76,005,Manicure
-PAGAMENTO,Quinta-feira,69.94,004,Manicure
-PAGAMENTO,Sábado,90.29,002,Manicure
-PAGAMENTO,Quinta-feira,54.63,004,Manicure
-PAGAMENTO,Domingo,99.31,005,Manicure
-PAGAMENTO,Terça-feira,26.04,003,Manicure
-PAGAMENTO,Sábado,12.66,003,Manicure
-PAGAMENTO,Terça-feira,46.8,004,Manicure
-PAGAMENTO,Sábado,61.56,004,Manicure
-PAGAMENTO,Terça-feira,37.01,005,Manicure
-PAGAMENTO,Sexta-feira,25.69,002,Manicure
-PAGAMENTO,Quarta-feira,79.83,003,Manicure
-PAGAMENTO,Sábado,95.83,003,Manicure
-PAGAMENTO,Terça-feira,50.39,004,Manicure
-PAGAMENTO,Segunda-feira,95.64,004,Manicure
-PAGAMENTO,Domingo,97.78,004,Manicure
-PAGAMENTO,Sexta-feira,40.86,003,Manicure
-PAGAMENTO,Sexta-feira,21.4,002,Manicure
-PAGAMENTO,Terça-feira,93.24,004,Manicure
-PAGAMENTO,Quarta-feira,61.55,005,Manicure
-PAGAMENTO,Quarta-feira,65.05,002,Manicure
-PAGAMENTO,Terça-feira,90.92,003,Manicure
-PAGAMENTO,Domingo,53.09,004,Manicure
-PAGAMENTO,Domingo,22.34,003,Manicure
-PAGAMENTO,Terça-feira,88.65,003,Manicure
-PAGAMENTO,Domingo,72.32,003,Manicure
-PAGAMENTO,Sexta-feira,80.2,003,Manicure
-PAGAMENTO,Quarta-feira,57.68,003,Manicure
-PAGAMENTO,Quinta-feira,40.06,001,Manicure
-PAGAMENTO,Segunda-feira,77.06,002,Manicure
-PAGAMENTO,Quinta-feira,44.09,003,Manicure
-PAGAMENTO,Quarta-feira,94.92,002,Manicure
-PAGAMENTO,Quarta-feira,48.63,002,Manicure
-PAGAMENTO,Sexta-feira,49.39,005,Manicure
-PAGAMENTO,Quarta-feira,68.69,002,Manicure
-PAGAMENTO,Segunda-feira,61.04,002,Manicure
-PAGAMENTO,Quinta-feira,30.91,002,Manicure
-PAGAMENTO,Terça-feira,11.81,005,Manicure
-PAGAMENTO,Sexta-feira,51.14,004,Manicure
-PAGAMENTO,Terça-feira,50.45,005,Manicure
-PAGAMENTO,Terça-feira,58.29,005,Manicure
-PAGAMENTO,Sexta-feira,12.48,004,Manicure
-PAGAMENTO,Quinta-feira,70.89,002,Manicure
-PAGAMENTO,Sexta-feira,96.89,001,Manicure
-PAGAMENTO,Quinta-feira,67.82,001,Manicure
-PAGAMENTO,Quarta-feira,15.05,001,Manicure
-PAGAMENTO,Quarta-feira,57.31,003,Manicure
-PAGAMENTO,Sábado,85.38,002,Manicure
-PAGAMENTO,Sexta-feira,39.82,003,Manicure
-PAGAMENTO,Domingo,53.75,005,Manicure
-PAGAMENTO,Domingo,83.08,003,Manicure
-PAGAMENTO,Segunda-feira,21.58,003,Manicure
-PAGAMENTO,Terça-feira,94.17,002,Manicure
-PAGAMENTO,Quarta-feira,94.84,002,Manicure
-PAGAMENTO,Quarta-feira,75.42,002,Manicure
-PAGAMENTO,Sexta-feira,18.24,004,Manicure
-PAGAMENTO,Quinta-feira,69.77,001,Manicure
-PAGAMENTO,Sábado,91.5,005,Manicure
-PAGAMENTO,Terça-feira,70.1,005,Manicure
-PAGAMENTO,Terça-feira,12.04,005,Manicure
-PAGAMENTO,Terça-feira,33.38,002,Manicure
-PAGAMENTO,Sexta-feira,47.61,004,Manicure
-PAGAMENTO,Terça-feira,86.23,001,Manicure
-PAGAMENTO,Sábado,89.36,002,Manicure
-PAGAMENTO,Sexta-feira,94.7,004,Manicure
-PAGAMENTO,Segunda-feira,45.92,003,Manicure
-PAGAMENTO,Sexta-feira,21.81,005,Manicure
-PAGAMENTO,Segunda-feira,64.72,001,Manicure
-PAGAMENTO,Quinta-feira,72.67,003,Manicure
-PAGAMENTO,Segunda-feira,49.41,004,Manicure
-PAGAMENTO,Quinta-feira,68.7,001,Manicure
-PAGAMENTO,Domingo,30.23,001,Manicure
-PAGAMENTO,Segunda-feira,50.92,004,Manicure
-PAGAMENTO,Terça-feira,47.52,003,Manicure
-PAGAMENTO,Quarta-feira,31.52,002,Manicure
-PAGAMENTO,Quinta-feira,91.8,005,Manicure
-PAGAMENTO,Sexta-feira,50.05,005,Manicure
-PAGAMENTO,Domingo,39.92,005,Manicure
-PAGAMENTO,Sexta-feira,38.24,002,Manicure
-PAGAMENTO,Sexta-feira,34.84,004,Manicure
-PAGAMENTO,Quinta-feira,49.72,005,Manicure
-PAGAMENTO,Sexta-feira,24.3,005,Manicure
-PAGAMENTO,Quinta-feira,79.17,001,Manicure
-PAGAMENTO,Terça-feira,76.36,005,Manicure
-PAGAMENTO,Terça-feira,81.95,003,Manicure
-PAGAMENTO,Sexta-feira,17.46,002,Manicure
-PAGAMENTO,Sábado,68.48,003,Manicure
-PAGAMENTO,Terça-feira,24.94,001,Manicure
-PAGAMENTO,Quarta-feira,46.84,004,Manicure
-PAGAMENTO,Quinta-feira,68.59,005,Manicure
-PAGAMENTO,Quarta-feira,17.36,001,Manicure
-PAGAMENTO,Sábado,24.09,005,Manicure
-PAGAMENTO,Domingo,43.2,004,Manicure
-PAGAMENTO,Terça-feira,80.61,003,Manicure
-PAGAMENTO,Terça-feira,75.75,005,Manicure
-PAGAMENTO,Sexta-feira,13.03,005,Manicure
-PAGAMENTO,Terça-feira,96.2,002,Manicure
-PAGAMENTO,Quinta-feira,44.53,003,Manicure
-PAGAMENTO,Sexta-feira,56.55,001,Manicure
-PAGAMENTO,Quarta-feira,65.11,001,Manicure
-PAGAMENTO,Segunda-feira,71.37,002,Manicure
-PAGAMENTO,Quarta-feira,84.73,002,Manicure
-PAGAMENTO,Quarta-feira,84.4,002,Manicure
-PAGAMENTO,Segunda-feira,56.63,001,Manicure
-PAGAMENTO,Terça-feira,61.96,001,Manicure
-PAGAMENTO,Terça-feira,79.09,005,Manicure
-PAGAMENTO,Sábado,17.16,005,Manicure
-PAGAMENTO,Terça-feira,92.52,002,Manicure
-PAGAMENTO,Terça-feira,30.38,001,Manicure
-PAGAMENTO,Terça-feira,75.15,002,Manicure
-PAGAMENTO,Quarta-feira,74.46,002,Manicure
-PAGAMENTO,Sábado,73.21,003,Manicure
-PAGAMENTO,Quinta-feira,39.7,004,Manicure
-PAGAMENTO,Segunda-feira,71.39,004,Manicure
-PAGAMENTO,Domingo,42.53,001,Manicure
-PAGAMENTO,Sábado,44.05,005,Manicure
-PAGAMENTO,Sábado,92.76,004,Manicure
-PAGAMENTO,Terça-feira,56.23,002,Manicure
-PAGAMENTO,Quarta-feira,62.75,003,Manicure
-PAGAMENTO,Quarta-feira,51.98,002,Manicure
-PAGAMENTO,Segunda-feira,96.74,004,Manicure
-PAGAMENTO,Segunda-feira,31.45,003,Manicure
-PAGAMENTO,Sábado,50.22,002,Manicure
-PAGAMENTO,Terça-feira,41.49,003,Manicure
-PAGAMENTO,Quarta-feira,16.12,005,Manicure
-PAGAMENTO,Quinta-feira,30.62,003,Manicure
-PAGAMENTO,Sexta-feira,84.34,004,Manicure
-PAGAMENTO,Sábado,71.11,005,Manicure
-PAGAMENTO,Domingo,81.81,005,Manicure
-PAGAMENTO,Segunda-feira,80.89,005,Manicure
-PAGAMENTO,Quarta-feira,39.77,004,Manicure
-PAGAMENTO,Quarta-feira,86.41,004,Manicure
-PAGAMENTO,Segunda-feira,81.36,001,Manicure
-PAGAMENTO,Domingo,57.86,001,Manicure
-PAGAMENTO,Sábado,49.91,005,Manicure
-PAGAMENTO,Quinta-feira,81.64,005,Manicure
-PAGAMENTO,Quinta-feira,98.66,005,Manicure
-PAGAMENTO,Sexta-feira,69.25,002,Manicure
-PAGAMENTO,Sábado,89.19,003,Manicure
-PAGAMENTO,Sábado,30.96,005,Manicure
-PAGAMENTO,Domingo,84.39,005,Manicure
-PAGAMENTO,Terça-feira,60.41,005,Manicure
-PAGAMENTO,Terça-feira,16.42,001,Manicure
-PAGAMENTO,Sexta-feira,47.0,003,Manicure
-PAGAMENTO,Sábado,69.57,002,Manicure
-PAGAMENTO,Sexta-feira,73.07,002,Manicure
-PAGAMENTO,Sexta-feira,80.99,004,Manicure
-PAGAMENTO,Domingo,33.44,005,Manicure
-PAGAMENTO,Terça-feira,31.02,004,Manicure
-PAGAMENTO,Sexta-feira,40.79,004,Manicure
-PAGAMENTO,Quinta-feira,86.3,003,Manicure
-PAGAMENTO,Sábado,22.68,002,Manicure
-PAGAMENTO,Quinta-feira,60.09,003,Manicure
-PAGAMENTO,Sábado,73.15,002,Manicure
-PAGAMENTO,Segunda-feira,67.12,004,Manicure
-PAGAMENTO,Quarta-feira,60.15,004,Manicure
-PAGAMENTO,Quinta-feira,31.29,005,Manicure
-PAGAMENTO,Sábado,69.53,005,Manicure
-PAGAMENTO,Domingo,58.35,002,Manicure
-PAGAMENTO,Segunda-feira,98.79,001,Manicure
+PAGAMENTO,Quarta-feira,105.22,002,Pedicure
+PAGAMENTO,Quinta-feira,38.75,003,Henna
+PAGAMENTO,Domingo,12.68,003,Design de sobrancelhas
+PAGAMENTO,Sexta-feira,21.11,005,Lash lifting
+PAGAMENTO,Sexta-feira,120.92,003,Brow lamination
+PAGAMENTO,Quinta-feira,145.03,003,Pedicure
+PAGAMENTO,Sexta-feira,53.21,001,Manicure
+PAGAMENTO,Sábado,134.59,001,Extensão de cílios
+PAGAMENTO,Sexta-feira,59.48,004,Brow lamination
+PAGAMENTO,Segunda-feira,87.45,001,Epilação
+PAGAMENTO,Domingo,53.82,001,Pedicure
+PAGAMENTO,Quinta-feira,71.85,005,Henna
+PAGAMENTO,Sábado,89.58,001,Massagem
+PAGAMENTO,Sábado,25.13,005,Extensão de cílios
+PAGAMENTO,Terça-feira,45.73,003,Manicure
+PAGAMENTO,Segunda-feira,33.27,003,Extensão de cílios
+PAGAMENTO,Quinta-feira,108.13,004,Epilação
+PAGAMENTO,Segunda-feira,83.77,001,Henna
+PAGAMENTO,Quarta-feira,106.89,005,Lash lifting
+PAGAMENTO,Quarta-feira,64.52,002,Pedicure
+PAGAMENTO,Quarta-feira,124.99,003,Brow lamination
+PAGAMENTO,Segunda-feira,99.79,003,Henna
+PAGAMENTO,Quarta-feira,117.77,003,Epilação
+PAGAMENTO,Sexta-feira,90.84,001,Extensão de cílios
+PAGAMENTO,Terça-feira,144.57,004,Epilação
+PAGAMENTO,Sexta-feira,112.21,001,Limpeza de pele
+PAGAMENTO,Sábado,149.16,004,Brow lamination
+PAGAMENTO,Domingo,11.67,004,Lash lifting
+PAGAMENTO,Sexta-feira,80.12,001,Limpeza de pele
+PAGAMENTO,Sábado,43.31,002,Maquiagem
+PAGAMENTO,Segunda-feira,25.74,004,Massagem
+PAGAMENTO,Quinta-feira,148.16,005,Penteados
+PAGAMENTO,Segunda-feira,141.85,005,Epilação
+PAGAMENTO,Quinta-feira,79.57,004,Tranças
+PAGAMENTO,Sexta-feira,67.63,002,Pedicure
+PAGAMENTO,Terça-feira,42.82,003,Lash lifting
+PAGAMENTO,Domingo,89.54,001,Penteados
+PAGAMENTO,Segunda-feira,77.93,003,Micropigmentação
+PAGAMENTO,Segunda-feira,56.5,004,Lash lifting
+PAGAMENTO,Sexta-feira,13.08,001,Maquiagem
+PAGAMENTO,Quinta-feira,91.38,001,Manicure
+PAGAMENTO,Quarta-feira,52.58,004,Lash lifting
+PAGAMENTO,Terça-feira,94.76,003,Massagem
+PAGAMENTO,Sexta-feira,41.93,004,Micropigmentação
+PAGAMENTO,Sexta-feira,99.59,005,Massagem
+PAGAMENTO,Terça-feira,149.93,004,Maquiagem
+PAGAMENTO,Quinta-feira,124.21,001,Design de sobrancelhas
+PAGAMENTO,Sábado,102.51,005,Limpeza de pele
+PAGAMENTO,Segunda-feira,98.52,004,Epilação
+PAGAMENTO,Sábado,13.17,002,Lash lifting
+PAGAMENTO,Sábado,58.82,001,Esmaltação em gel
+PAGAMENTO,Sexta-feira,81.55,005,Henna
+PAGAMENTO,Sexta-feira,47.06,005,Brow lamination
+PAGAMENTO,Sexta-feira,138.44,005,Lash lifting
+PAGAMENTO,Quarta-feira,19.58,001,Pedicure
+PAGAMENTO,Domingo,118.65,002,Manicure
+PAGAMENTO,Quarta-feira,117.26,004,Brow lamination
+PAGAMENTO,Sexta-feira,68.87,001,Henna
+PAGAMENTO,Terça-feira,90.58,004,Micropigmentação
+PAGAMENTO,Quinta-feira,143.8,001,Penteados
+PAGAMENTO,Terça-feira,69.95,001,Manicure
+PAGAMENTO,Quinta-feira,59.72,003,Design de sobrancelhas
+PAGAMENTO,Sexta-feira,125.59,005,Penteados
+PAGAMENTO,Segunda-feira,66.54,005,Henna
+PAGAMENTO,Domingo,22.31,004,Maquiagem
+PAGAMENTO,Sexta-feira,117.74,001,Manicure
+PAGAMENTO,Domingo,52.8,002,Design de sobrancelhas
+PAGAMENTO,Sábado,55.56,003,Maquiagem
+PAGAMENTO,Domingo,116.71,002,Brow lamination
+PAGAMENTO,Quinta-feira,98.94,005,Lash lifting
+PAGAMENTO,Sexta-feira,96.63,005,Lash lifting
+PAGAMENTO,Terça-feira,145.67,001,Penteados
+PAGAMENTO,Sábado,108.2,001,Massagem
+PAGAMENTO,Quinta-feira,84.92,005,Esmaltação em gel
+PAGAMENTO,Sexta-feira,55.17,001,Esmaltação em gel
+PAGAMENTO,Quarta-feira,91.94,004,Manicure
+PAGAMENTO,Domingo,140.65,005,Maquiagem
+PAGAMENTO,Domingo,107.16,001,Pedicure
+PAGAMENTO,Quarta-feira,19.7,004,Massagem
+PAGAMENTO,Terça-feira,124.92,002,Manicure
+PAGAMENTO,Domingo,148.57,001,Epilação
+PAGAMENTO,Domingo,73.7,002,Limpeza de pele
+PAGAMENTO,Quinta-feira,20.42,003,Brow lamination
+PAGAMENTO,Terça-feira,76.34,002,Limpeza de pele
+PAGAMENTO,Domingo,41.18,003,Limpeza de pele
+PAGAMENTO,Domingo,79.39,002,Pedicure
+PAGAMENTO,Sábado,45.43,004,Massagem
+PAGAMENTO,Domingo,62.3,003,Lash lifting
+PAGAMENTO,Segunda-feira,83.14,001,Tranças
+PAGAMENTO,Quarta-feira,32.56,001,Brow lamination
+PAGAMENTO,Terça-feira,109.83,002,Henna
+PAGAMENTO,Terça-feira,68.5,005,Epilação
+PAGAMENTO,Terça-feira,111.29,004,Epilação
+PAGAMENTO,Terça-feira,63.04,002,Manicure
+PAGAMENTO,Domingo,143.01,005,Penteados
+PAGAMENTO,Sexta-feira,108.81,002,Micropigmentação
+PAGAMENTO,Sexta-feira,126.64,001,Brow lamination
+PAGAMENTO,Quarta-feira,19.31,001,Micropigmentação
+PAGAMENTO,Terça-feira,14.99,001,Maquiagem
+PAGAMENTO,Quinta-feira,111.51,002,Lash lifting
+PAGAMENTO,Domingo,17.34,003,Maquiagem
+PAGAMENTO,Domingo,41.03,002,Henna
+PAGAMENTO,Domingo,142.26,004,Pedicure
+PAGAMENTO,Terça-feira,15.52,002,Brow lamination
+PAGAMENTO,Terça-feira,101.84,004,Esmaltação em gel
+PAGAMENTO,Quinta-feira,30.12,001,Massagem
+PAGAMENTO,Terça-feira,109.82,002,Lash lifting
+PAGAMENTO,Quarta-feira,46.4,003,Limpeza de pele
+PAGAMENTO,Quinta-feira,34.29,005,Limpeza de pele
+PAGAMENTO,Sábado,15.96,005,Henna
+PAGAMENTO,Terça-feira,84.11,005,Lash lifting
+PAGAMENTO,Quarta-feira,130.66,004,Brow lamination
+PAGAMENTO,Sábado,142.51,005,Pedicure
+PAGAMENTO,Segunda-feira,121.82,002,Pedicure
+PAGAMENTO,Quarta-feira,130.47,001,Micropigmentação
+PAGAMENTO,Segunda-feira,13.8,003,Massagem
+PAGAMENTO,Quinta-feira,75.73,003,Design de sobrancelhas
+PAGAMENTO,Segunda-feira,57.53,003,Limpeza de pele
+PAGAMENTO,Sábado,38.22,004,Pedicure
+PAGAMENTO,Terça-feira,118.47,003,Henna
+PAGAMENTO,Sábado,32.21,002,Tranças
+PAGAMENTO,Terça-feira,77.14,002,Esmaltação em gel
+PAGAMENTO,Terça-feira,91.79,001,Extensão de cílios
+PAGAMENTO,Segunda-feira,126.96,004,Manicure
+PAGAMENTO,Quarta-feira,33.81,002,Epilação
+PAGAMENTO,Quarta-feira,87.32,005,Lash lifting
+PAGAMENTO,Sexta-feira,43.92,004,Epilação
+PAGAMENTO,Quarta-feira,83.49,005,Massagem
+PAGAMENTO,Segunda-feira,118.11,003,Penteados
+PAGAMENTO,Domingo,144.9,002,Brow lamination
+PAGAMENTO,Sábado,52.53,004,Epilação
+PAGAMENTO,Quinta-feira,79.9,003,Lash lifting
+PAGAMENTO,Quinta-feira,62.32,004,Pedicure
+PAGAMENTO,Domingo,53.47,003,Esmaltação em gel
+PAGAMENTO,Quinta-feira,134.06,004,Maquiagem
+PAGAMENTO,Sábado,20.42,002,Henna
+PAGAMENTO,Terça-feira,42.94,005,Epilação
+PAGAMENTO,Sexta-feira,94.98,004,Epilação
+PAGAMENTO,Sábado,13.83,005,Epilação
+PAGAMENTO,Segunda-feira,22.67,004,Limpeza de pele
+PAGAMENTO,Sábado,91.13,003,Esmaltação em gel
+PAGAMENTO,Domingo,72.98,004,Epilação
+PAGAMENTO,Domingo,57.46,004,Design de sobrancelhas
+PAGAMENTO,Domingo,109.15,002,Manicure
+PAGAMENTO,Quarta-feira,65.66,003,Pedicure
+PAGAMENTO,Quarta-feira,124.01,002,Penteados
+PAGAMENTO,Terça-feira,109.31,001,Micropigmentação
+PAGAMENTO,Domingo,135.27,005,Micropigmentação
+PAGAMENTO,Quinta-feira,27.59,005,Manicure
+PAGAMENTO,Sexta-feira,37.08,004,Limpeza de pele
+PAGAMENTO,Segunda-feira,87.35,005,Massagem
+PAGAMENTO,Quarta-feira,106.18,005,Tranças
+PAGAMENTO,Segunda-feira,103.73,002,Limpeza de pele
+PAGAMENTO,Domingo,17.88,003,Pedicure
+PAGAMENTO,Terça-feira,112.02,002,Henna
+PAGAMENTO,Segunda-feira,35.1,001,Massagem
+PAGAMENTO,Sábado,70.97,001,Pedicure
+PAGAMENTO,Sexta-feira,72.81,004,Lash lifting
+PAGAMENTO,Quarta-feira,117.43,005,Pedicure
+PAGAMENTO,Domingo,13.37,005,Extensão de cílios
+PAGAMENTO,Sábado,74.43,004,Design de sobrancelhas
+PAGAMENTO,Segunda-feira,144.35,002,Penteados
+PAGAMENTO,Quinta-feira,43.77,005,Brow lamination
+PAGAMENTO,Quarta-feira,116.12,002,Brow lamination
+PAGAMENTO,Terça-feira,89.93,003,Limpeza de pele
+PAGAMENTO,Segunda-feira,10.76,001,Micropigmentação
+PAGAMENTO,Sexta-feira,93.03,001,Penteados
+PAGAMENTO,Segunda-feira,145.64,005,Henna
+PAGAMENTO,Quarta-feira,138.61,004,Penteados
+PAGAMENTO,Domingo,75.21,001,Manicure
+PAGAMENTO,Domingo,61.07,003,Extensão de cílios
+PAGAMENTO,Sábado,85.98,003,Brow lamination
+PAGAMENTO,Quinta-feira,47.78,005,Micropigmentação
+PAGAMENTO,Quinta-feira,66.01,002,Brow lamination
+PAGAMENTO,Domingo,27.43,003,Penteados
+PAGAMENTO,Sábado,21.27,003,Esmaltação em gel
+PAGAMENTO,Domingo,75.29,005,Esmaltação em gel
+PAGAMENTO,Quarta-feira,29.35,002,Micropigmentação
+PAGAMENTO,Sexta-feira,42.27,002,Henna
+PAGAMENTO,Segunda-feira,118.99,001,Maquiagem
+PAGAMENTO,Sábado,93.7,001,Maquiagem
+PAGAMENTO,Sexta-feira,61.42,001,Manicure
+PAGAMENTO,Segunda-feira,25.8,001,Pedicure
+PAGAMENTO,Sábado,104.82,002,Design de sobrancelhas
+PAGAMENTO,Quinta-feira,16.21,001,Massagem
+PAGAMENTO,Terça-feira,139.39,004,Esmaltação em gel
+PAGAMENTO,Segunda-feira,125.71,003,Tranças
+PAGAMENTO,Quarta-feira,17.69,001,Micropigmentação
+PAGAMENTO,Sexta-feira,69.71,003,Henna
+PAGAMENTO,Quinta-feira,38.64,004,Penteados
+PAGAMENTO,Segunda-feira,48.59,003,Limpeza de pele
+PAGAMENTO,Domingo,58.4,001,Brow lamination
+PAGAMENTO,Quinta-feira,47.06,001,Brow lamination
+PAGAMENTO,Quarta-feira,30.44,001,Brow lamination
+PAGAMENTO,Segunda-feira,83.46,004,Micropigmentação
+PAGAMENTO,Terça-feira,96.63,004,Design de sobrancelhas
+PAGAMENTO,Quarta-feira,112.54,001,Design de sobrancelhas
+PAGAMENTO,Segunda-feira,55.91,005,Henna
+PAGAMENTO,Quinta-feira,55.82,003,Tranças
+PAGAMENTO,Sábado,74.36,003,Brow lamination
+PAGAMENTO,Quinta-feira,78.53,004,Henna
+PAGAMENTO,Terça-feira,78.1,004,Limpeza de pele
+PAGAMENTO,Segunda-feira,13.05,005,Henna
+PAGAMENTO,Segunda-feira,69.74,005,Tranças
+PAGAMENTO,Sexta-feira,95.12,001,Epilação
+PAGAMENTO,Quarta-feira,32.63,005,Pedicure
+PAGAMENTO,Segunda-feira,145.89,002,Limpeza de pele
+PAGAMENTO,Quarta-feira,103.62,003,Penteados
+PAGAMENTO,Sexta-feira,88.82,004,Limpeza de pele
+PAGAMENTO,Sexta-feira,65.55,001,Design de sobrancelhas
+PAGAMENTO,Quarta-feira,107.35,004,Design de sobrancelhas
+PAGAMENTO,Quinta-feira,70.14,002,Henna
+PAGAMENTO,Terça-feira,124.43,003,Tranças
+PAGAMENTO,Sexta-feira,89.44,005,Epilação
+PAGAMENTO,Quinta-feira,138.94,005,Penteados
+PAGAMENTO,Quinta-feira,13.76,001,Design de sobrancelhas
+PAGAMENTO,Terça-feira,39.08,001,Henna
+PAGAMENTO,Quinta-feira,132.79,003,Lash lifting
+PAGAMENTO,Terça-feira,126.08,001,Pedicure
+PAGAMENTO,Domingo,53.33,002,Penteados
+PAGAMENTO,Segunda-feira,130.07,001,Brow lamination
+PAGAMENTO,Terça-feira,40.81,005,Limpeza de pele
+PAGAMENTO,Terça-feira,72.02,004,Manicure
+PAGAMENTO,Sábado,131.68,001,Lash lifting
+PAGAMENTO,Sábado,37.48,004,Manicure
+PAGAMENTO,Quarta-feira,71.97,002,Penteados
+PAGAMENTO,Sexta-feira,55.3,004,Extensão de cílios
+PAGAMENTO,Sexta-feira,24.13,003,Henna
+PAGAMENTO,Domingo,141.18,001,Extensão de cílios
+PAGAMENTO,Sexta-feira,76.36,003,Esmaltação em gel
+PAGAMENTO,Terça-feira,57.82,001,Pedicure
+PAGAMENTO,Sábado,108.34,004,Lash lifting
+PAGAMENTO,Sexta-feira,50.77,001,Tranças
+PAGAMENTO,Terça-feira,118.68,002,Pedicure
+PAGAMENTO,Sábado,141.93,005,Esmaltação em gel
+PAGAMENTO,Quarta-feira,94.16,003,Manicure
+PAGAMENTO,Quarta-feira,46.68,001,Lash lifting
+PAGAMENTO,Segunda-feira,109.49,005,Maquiagem
+PAGAMENTO,Quarta-feira,115.9,001,Design de sobrancelhas
+PAGAMENTO,Domingo,54.64,004,Tranças
+PAGAMENTO,Terça-feira,115.73,004,Massagem
+PAGAMENTO,Quinta-feira,83.5,005,Limpeza de pele
+PAGAMENTO,Domingo,75.28,004,Maquiagem
+PAGAMENTO,Domingo,26.08,001,Esmaltação em gel
+PAGAMENTO,Quinta-feira,38.13,002,Micropigmentação
+PAGAMENTO,Sábado,123.59,004,Design de sobrancelhas
+PAGAMENTO,Domingo,85.5,001,Tranças
+PAGAMENTO,Segunda-feira,19.24,003,Design de sobrancelhas
+PAGAMENTO,Sábado,134.68,002,Massagem
+PAGAMENTO,Segunda-feira,32.27,004,Micropigmentação
+PAGAMENTO,Sábado,100.98,004,Manicure
+PAGAMENTO,Terça-feira,49.51,002,Epilação
+PAGAMENTO,Sábado,114.19,005,Maquiagem
+PAGAMENTO,Sábado,120.54,001,Penteados
+PAGAMENTO,Terça-feira,131.54,002,Design de sobrancelhas
+PAGAMENTO,Terça-feira,11.15,005,Extensão de cílios
+PAGAMENTO,Quinta-feira,140.46,005,Limpeza de pele
+PAGAMENTO,Quinta-feira,69.99,003,Design de sobrancelhas
+PAGAMENTO,Terça-feira,67.67,002,Manicure
+PAGAMENTO,Quinta-feira,37.6,002,Pedicure
+PAGAMENTO,Quinta-feira,42.33,005,Tranças
+PAGAMENTO,Sexta-feira,52.42,001,Limpeza de pele
+PAGAMENTO,Terça-feira,109.24,001,Lash lifting
+PAGAMENTO,Quinta-feira,35.28,003,Manicure
+PAGAMENTO,Sexta-feira,116.45,003,Extensão de cílios
+PAGAMENTO,Quinta-feira,76.75,004,Henna
+PAGAMENTO,Quarta-feira,70.91,005,Maquiagem
+PAGAMENTO,Sexta-feira,76.88,001,Brow lamination
+PAGAMENTO,Segunda-feira,35.96,001,Limpeza de pele
+PAGAMENTO,Quinta-feira,66.37,002,Massagem
+PAGAMENTO,Quinta-feira,65.39,002,Massagem
+PAGAMENTO,Domingo,51.06,001,Manicure
+PAGAMENTO,Segunda-feira,36.54,002,Henna
+PAGAMENTO,Quarta-feira,24.54,005,Extensão de cílios
+PAGAMENTO,Sexta-feira,119.11,003,Pedicure
+PAGAMENTO,Sábado,118.73,001,Brow lamination
+PAGAMENTO,Terça-feira,41.5,004,Manicure
+PAGAMENTO,Terça-feira,131.18,001,Tranças
+PAGAMENTO,Segunda-feira,31.97,003,Massagem
+PAGAMENTO,Domingo,118.8,002,Henna
+PAGAMENTO,Segunda-feira,122.57,002,Maquiagem
+PAGAMENTO,Segunda-feira,145.4,001,Manicure
+PAGAMENTO,Sexta-feira,29.86,003,Pedicure
+PAGAMENTO,Segunda-feira,145.22,004,Micropigmentação
+PAGAMENTO,Segunda-feira,122.51,003,Design de sobrancelhas
+PAGAMENTO,Domingo,135.05,001,Maquiagem
+PAGAMENTO,Terça-feira,134.69,003,Lash lifting
+PAGAMENTO,Sábado,47.7,002,Tranças
+PAGAMENTO,Domingo,67.3,003,Henna
+PAGAMENTO,Quinta-feira,79.38,004,Maquiagem
+PAGAMENTO,Quinta-feira,28.45,004,Lash lifting
+PAGAMENTO,Sábado,93.02,005,Pedicure
+PAGAMENTO,Terça-feira,105.62,001,Micropigmentação
+PAGAMENTO,Terça-feira,78.31,003,Pedicure
+PAGAMENTO,Terça-feira,25.29,001,Design de sobrancelhas
+PAGAMENTO,Terça-feira,10.43,001,Henna
+PAGAMENTO,Quarta-feira,73.02,004,Lash lifting
+PAGAMENTO,Sábado,111.49,002,Esmaltação em gel
+PAGAMENTO,Segunda-feira,91.81,004,Manicure
+PAGAMENTO,Quarta-feira,88.12,002,Massagem
+PAGAMENTO,Sexta-feira,20.0,1,Manicure
+RETIRADA,Sexta-feira,1000.0,003,praia
+RETIRADA,Sexta-feira,50000.0,003,praia

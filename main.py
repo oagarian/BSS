@@ -127,32 +127,40 @@ def cliente_menu():
 def funcionario_menu():
     while True:
         panel_content = Text()
-        panel_content.append("\n--- Menu do Funcionário ---\n", style="light_goldenrod3")
+        panel_content.append("\n        --- Menu ---\n", style="light_goldenrod3")
         panel_content.append("1. ", style="sandy_brown")
-        panel_content.append("Finalizar serviço\n")
+        panel_content.append("Ver informações de um agendamento\n")
         panel_content.append("2. ", style="sandy_brown")
-        panel_content.append("Fazer retirada de caixa\n")
+        panel_content.append("Agendar um horário\n")
         panel_content.append("3. ", style="sandy_brown")
-        panel_content.append("Relatórios\n")
+        panel_content.append("Apagar um agendamento\n")
         panel_content.append("4. ", style="sandy_brown")
-        panel_content.append("Controle de Estoque\n")
+        panel_content.append("Finalizar serviço\n")
+        panel_content.append("5. ", style="sandy_brown")
+        panel_content.append("Fazer retirada de caixa\n")
+        panel_content.append("6. ", style="sandy_brown")
+        panel_content.append("Criar relatórios\n")
         panel_content.append("0. ", style="dark_orange3")
         panel_content.append("Voltar ao menu principal\n")
         
-        console.print(Panel(panel_content, title="Menu do Funcionário", border_style="light_pink3", padding=[0, 18]))
-
-        choice = input("Escolha uma opção [0/1/2/3] (0): ").strip()
+        console.print(Panel(panel_content, title="Menu Unificado", border_style="pink3", padding=[0, 12]))
+        
+        choice = input("Escolha uma opção [0/1/2/3/4/5/6/7] (0): ").strip()
 
         if choice == "0":
             break
         elif choice == "1":
-            finalizar_servico()
+            ver_agendamento()
         elif choice == "2":
-            registrar_retirada_caixa()
+            agendar_horario()
         elif choice == "3":
-            gerar_relatorios()
+            apagar_agendamento()
         elif choice == "4":
-            controle_estoque()
+            finalizar_servico()
+        elif choice == "5":
+            registrar_retirada_caixa()
+        elif choice == "6":
+            gerar_relatorios()
         else:
             console.print("[red]Opção inválida. Tente novamente.[/red]")
 
@@ -388,14 +396,15 @@ def relatorio_diario():
     plt.show()
 
 def relatorio_semanal():
-    dia_semana = dias_semana[date.today().weekday()]
     df = pd.read_csv("db/movimentacao_caixa.csv")
     funcionarios = pd.read_csv("db/funcionarios.csv")
     funcionarios_dict = {funcionario["codigo"]: funcionario["nome"] for _, funcionario in funcionarios.iterrows()}
     df["nome_funcionario"] = df["codigo_funcionario"].map(funcionarios_dict)
 
-    df["dia_da_semana"] = pd.Categorical(df["dia_da_semana"], categories=dias_semana, ordered=True)
+    df["tipo"] = df["tipo"].str.strip().str.upper()
     df_semanal = df[df["tipo"] != "RETIRADA"]
+
+    df["dia_da_semana"] = pd.Categorical(df["dia_da_semana"], categories=dias_semana, ordered=True)
 
     lucro_funcionario_semanal = df_semanal.groupby(["dia_da_semana", "nome_funcionario"])["valor"].sum().unstack(fill_value=0)
     lucro_total_semanal = df_semanal.groupby("dia_da_semana")["valor"].sum()
@@ -415,22 +424,34 @@ def relatorio_semanal():
     plt.savefig(f"relatorios/semanal.png")
     plt.show()
 
+
+def relatorio_servicos():
+    df = pd.read_csv("db/movimentacao_caixa.csv")
+    df = df[df["tipo"] != "RETIRADA"]
+    frequencia_justificativa = df['justificativa'].value_counts()
+    plt.figure(figsize=(7, 7))
+    plt.pie(frequencia_justificativa, labels=frequencia_justificativa.index, autopct='%1.1f%%', startangle=90)
+    plt.title("Frequência movimentação de caixa")
+    plt.savefig("relatorios/servicos.png")
+    plt.show()
+
 def gerar_relatorios():
     while True:
         relatorio_escolhido = Prompt.ask(
             "Qual relatório deseja gerar?",
-            choices=["Diário", "Semanal"],
+            choices=["Diário", "Semanal", "Servicos", "Sair"],
             default="Diário"
         )
         if relatorio_escolhido == "Diário":
             relatorio_diario()
         elif relatorio_escolhido == "Semanal":
             relatorio_semanal()
-        else:
+        elif relatorio_escolhido == "Servicos":
+            relatorio_servicos()
+        elif relatorio_escolhido == "Sair":
+            console.print("Saindo do sistema...")
             break
 
-def controle_estoque():
-    print("Função de controle de estoque ainda não implementada.")
 
 # Inicialização do sistema
 if __name__ == "__main__":
