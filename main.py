@@ -333,8 +333,7 @@ def finalizar_servico():
 def registrar_retirada_caixa():
     codigo = Prompt.ask("[light_goldenrod3]Informe o código do funcionário[/light_goldenrod3]")
 
-    funcionarios = pd.read_csv("db/funcionarios.csv")
-    codigo = str(codigo).zfill(3)
+    funcionarios = pd.read_csv("db/funcionarios.csv", dtype={"codigo": str})
     funcionario = funcionarios[funcionarios["codigo"] == codigo]
     if funcionario.empty:
         console.print("[dark_orange3]Código errado. Tente novamente.[/dark_orange3]")
