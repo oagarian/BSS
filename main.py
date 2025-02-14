@@ -1,13 +1,15 @@
+import sys
+import time
 import pandas as pd
 import os
 import getpass
-from rich.prompt import Prompt
+from rich.prompt import Prompt, Confirm
 from rich.console import Console
 from rich.panel import Panel
 from rich.text import Text
 import random
 import string
-
+import db
 def gerar_codigo_unico(tamanho=4):
     caracteres = string.ascii_uppercase + string.digits
     return ''.join(random.choices(caracteres, k=tamanho))
@@ -97,8 +99,6 @@ def cliente_menu():
         panel_content.append("2. ", style="sandy_brown")
         panel_content.append("Agendar um horário\n")
         panel_content.append("3. ", style="sandy_brown")
-        panel_content.append("Editar um agendamento\n")
-        panel_content.append("4. ", style="sandy_brown")
         panel_content.append("Apagar um agendamento\n")
         panel_content.append("0. ", style="dark_orange3")
         panel_content.append("Voltar ao menu principal\n")
@@ -114,8 +114,6 @@ def cliente_menu():
         elif choice == "2":
             agendar_horario()
         elif choice == "3":
-            editar_agendamento()
-        elif choice == "4":
             apagar_agendamento()
         else:
             console.print("[red]Opção inválida. Tente novamente.[/red]")
@@ -126,7 +124,7 @@ def funcionario_menu():
         panel_content = Text()
         panel_content.append("\n--- Menu do Funcionário ---\n", style="light_goldenrod3")
         panel_content.append("1. ", style="sandy_brown")
-        panel_content.append("Controle de Caixa\n")
+        panel_content.append("Finalizar serviço\n")
         panel_content.append("2. ", style="sandy_brown")
         panel_content.append("Relatórios\n")
         panel_content.append("3. ", style="sandy_brown")
@@ -141,7 +139,7 @@ def funcionario_menu():
         if choice == "0":
             break
         elif choice == "1":
-            controle_caixa()
+            finalizar_servico()
         elif choice == "2":
             gerar_relatorios()
         elif choice == "3":
@@ -150,11 +148,9 @@ def funcionario_menu():
             console.print("[red]Opção inválida. Tente novamente.[/red]")
 
 
-# Placeholder para funções ainda a serem implementadas
-def ver_agendamento():
+def ver_informacoes_agendamento(codigo):
     funcionarios = pd.read_csv("db/funcionarios.csv")
     funcionarios_dict = {str(funcionario["codigo"]): funcionario["nome"] for _, funcionario in funcionarios.iterrows()}    
-    codigo = input("Informe o código de agendamento:")
     horarios = pd.read_csv("db/horarios.csv")
     horario = horarios[horarios['codigo'] == codigo]
     if horario.empty: 
@@ -162,7 +158,7 @@ def ver_agendamento():
     else:
         nome_funcionario = funcionarios_dict.get(horario["codigo_funcionario"].to_string(index=False), "Funcionário não encontrado")
         panel_content = Text()
-        panel_content.append("\n--- Pressione \"Enter\" para sair ---\n", style="light_goldenrod3")
+        panel_content.append("\n--- Digite \"y\" para sair ---\n", style="light_goldenrod3")
         panel_content.append("CÓDIGO: ", style="sandy_brown")
         panel_content.append(f"{horario['codigo'].to_string(index=False)}\n")
         panel_content.append("DIA DA SEMANA: ", style="sandy_brown")
@@ -175,8 +171,15 @@ def ver_agendamento():
         panel_content.append(f"{nome_funcionario}\n")
         panel_content.append("VALOR: ", style="sandy_brown")
         panel_content.append(f"R${horario['valor_servico'].to_string(index=False)}\n")
-        console.print(Panel(panel_content, title="Informações sobre agendamento", border_style="light_pink3", padding=[0,14]))
+        console.print(Panel(panel_content, title="Informações do Agendamento", border_style="pink3", padding=[0, 17]))
 
+def ver_agendamento():
+    codigo = Prompt.ask("Informe o código do agendamento")
+    ver_informacoes_agendamento(codigo)
+    while True:
+        exit = Confirm.ask("[red]Deseja sair ao menu?[/red]")
+        if exit:
+            break
 
 def mostrar_servicos():
     servicos = pd.read_csv("db/servicos.csv")
@@ -267,31 +270,60 @@ def agendar_horario():
 
         horario_selecionado = horarios_disponiveis[escolha_horario - 1]
 
-        codigo_horario = gerar_codigo_unico()
-        # Salvar o agendamento no arquivo CSV
-        novo_agendamento = pd.DataFrame([{
-            "codigo": codigo_horario,
-            "dia_da_semana": dia,
-            "horario": horario_selecionado,
-            "tipo_servico": nome_servico,
-            "codigo_funcionario": codigo_funcionario,
-            "valor_servico": servico_selecionado["valor"],
-        }])
-        novo_agendamento.to_csv("db/horarios.csv", mode='a', header=False, index=False)
+        codigo_agendamento = gerar_codigo_unico()
+        db.salvar_agendamento(
+            codigo_agendamento,
+            dia,
+            horario_selecionado,
+            nome_servico,
+            codigo_funcionario,
+            servico_selecionado["valor"]
+        )
         console.print(f"[bold green]Agendamento para {nome_servico} às {horario_selecionado} no dia {dia} foi concluído com sucesso![/bold green]"
-                      f"[red]\nCÓDIGO DE AGENDAMENTO: {codigo_horario}[/red]")
+                      f"[red]\nCÓDIGO DE AGENDAMENTO: {codigo_agendamento}[/red]")
         break
 
 
-def editar_agendamento():
-    print("Função de editar agendamento ainda não implementada.")
-
 def apagar_agendamento():
-    print("Função de apagar agendamento ainda não implementada.")
+    codigo = Prompt.ask("[light_goldenrod3]Informe o código do agendamento[/light_goldenrod3]")
+    
+    agendamentos = pd.read_csv("db/horarios.csv")
+    if not agendamentos[agendamentos["codigo"] == codigo].empty:
+        ver_informacoes_agendamento(codigo)
+        delete = Confirm.ask("[red]Deseja mesmo cancelar o agendamento?[/red]")
+        if delete:
+            agendamentos = agendamentos[agendamentos["codigo"]!= codigo]
+            agendamentos.to_csv("db/horarios.csv", index=False)
+            console.print("[bold green]Agendamento cancelado com sucesso![/bold green]")
+    else:
+        console.print("[red]Agendamento não encontrado. Tente novamente.[/red]")
 
-def controle_caixa():
-    print("Função de controle de caixa ainda não implementada.")
 
+def finalizar_servico():
+    codigo = Prompt.ask("[light_goldenrod3]Informe o código do agendamento[/light_goldenrod3]")
+    
+    agendamentos = pd.read_csv("db/horarios.csv")
+    agendamento = agendamentos[agendamentos["codigo"] == codigo]
+    if not agendamento.empty:
+        ver_informacoes_agendamento(codigo)
+    valor_pago = float(Prompt.ask("[light_goldenrod3]Informe o valor pago pelo serviço.[/light_goldenrod3]"))
+    troco = valor_pago - float(agendamento["valor_servico"].to_string(index=False))
+    console.print(f"[bold green]Troco: R${troco}[/bold green]")
+    finalizar = Confirm.ask("[dark_orange3]Finalizar serviço?[/dark_orange3]")
+    if finalizar:
+        agendamentos.drop(agendamento.index, inplace=True)
+        agendamentos.to_csv("db/horarios.csv", index=False)
+        db.registrar_movimentacao(
+            "PAGAMENTO",
+            agendamento['dia_da_semana'].to_string(index=False),
+            float(agendamento['valor_servico'].to_string(index=False)),
+            agendamento['codigo_funcionario'].to_string(index=False),
+            agendamento['tipo_servico'].to_string(index=False),
+        )
+        console.print("[bold green]Serviço finalizado com sucesso![/bold green]")
+
+def registrar_retirada_caixa():
+    print("BLALBALBLALBLALBALBLALBLA")
 def gerar_relatorios():
     print("Função de gerar relatórios ainda não implementada.")
 
