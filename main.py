@@ -123,7 +123,6 @@ def cliente_menu():
         else:
             console.print("[red]Opção inválida. Tente novamente.[/red]")
 
-# Função para o menu do funcionário
 def funcionario_menu():
     while True:
         panel_content = Text()
@@ -135,15 +134,17 @@ def funcionario_menu():
         panel_content.append("3. ", style="sandy_brown")
         panel_content.append("Apagar um agendamento\n")
         panel_content.append("4. ", style="sandy_brown")
-        panel_content.append("Finalizar serviço\n")
+        panel_content.append("Ver seus agendamentos para um dia\n")
         panel_content.append("5. ", style="sandy_brown")
-        panel_content.append("Fazer retirada de caixa\n")
+        panel_content.append("Finalizar serviço\n")
         panel_content.append("6. ", style="sandy_brown")
+        panel_content.append("Fazer retirada do caixa\n")
+        panel_content.append("7. ", style="sandy_brown")
         panel_content.append("Criar relatórios\n")
         panel_content.append("0. ", style="dark_orange3")
         panel_content.append("Voltar ao menu principal\n")
         
-        console.print(Panel(panel_content, title="Menu Unificado", border_style="pink3", padding=[0, 12]))
+        console.print(Panel(panel_content, title="Menu de funcionário", border_style="pink3", padding=[0, 12]))
         
         choice = input("Escolha uma opção [0/1/2/3/4/5/6/7] (0): ").strip()
 
@@ -156,10 +157,12 @@ def funcionario_menu():
         elif choice == "3":
             apagar_agendamento()
         elif choice == "4":
-            finalizar_servico()
+            ver_agendamentos_de_um_dia()
         elif choice == "5":
-            registrar_retirada_caixa()
+            finalizar_servico()
         elif choice == "6":
+            registrar_retirada_caixa()
+        elif choice == "7":
             gerar_relatorios()
         else:
             console.print("[red]Opção inválida. Tente novamente.[/red]")
@@ -175,7 +178,7 @@ def ver_informacoes_agendamento(codigo):
     else:
         nome_funcionario = funcionarios_dict.get(horario["codigo_funcionario"].to_string(index=False), "Funcionário não encontrado")
         panel_content = Text()
-        panel_content.append("\n--- Digite \"y\" para sair ---\n", style="light_goldenrod3")
+        panel_content.append("\n    --- Digite \"y\" para sair ---\n", style="light_goldenrod3")
         panel_content.append("CÓDIGO: ", style="sandy_brown")
         panel_content.append(f"{horario['codigo'].to_string(index=False)}\n")
         panel_content.append("DIA DA SEMANA: ", style="sandy_brown")
@@ -231,8 +234,8 @@ def ver_horarios_disponiveis(dia, servico, codigo_funcionario):
 
 def agendar_horario():
     servicos = pd.read_csv("db/servicos.csv")
-    funcionarios = pd.read_csv("db/funcionarios.csv")
-    funcionarios_dict = {funcionario["codigo"]: funcionario["nome"] for _, funcionario in funcionarios.iterrows()}
+    funcionarios = pd.read_csv("db/funcionarios.csv", dtype={"codigo": str})
+    funcionarios_dict = {funcionario["codigo"].zfill(3): funcionario["nome"] for _, funcionario in funcionarios.iterrows()}
 
     while True:
         mostrar_servicos()
@@ -249,7 +252,7 @@ def agendar_horario():
 
         servico_selecionado = servicos.iloc[escolha - 1]
         nome_servico = servico_selecionado["servico"]
-        codigo_funcionario = servico_selecionado["codigo_funcionario"]
+        codigo_funcionario = str(servico_selecionado["codigo_funcionario"]).zfill(3)
         nome_funcionario = funcionarios_dict.get(codigo_funcionario, "Funcionário não encontrado")
         dias_semana = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
 
@@ -317,6 +320,30 @@ def apagar_agendamento():
 
 dias_semana = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
 
+def ver_agendamentos_de_um_dia():
+    codigo = Prompt.ask("[light_goldenrod3]Informe o seu código de funcionário[/light_goldenrod3]")
+    funcionarios = pd.read_csv("db/funcionarios.csv", dtype={"codigo": str})
+    if funcionarios[funcionarios["codigo"] == codigo].empty:
+        console.print("[red]Funcionário não encontrado. Tente novamente.[/red]")
+        return
+    dias_semana = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
+    dia = Prompt.ask("[light_goldenrod3]Informe o dia da semana[/light_goldenrod3]", choices=dias_semana)
+    agendamentos = pd.read_csv("db/horarios.csv", dtype={"codigo_funcionario": str})
+    agendamentos_dia = agendamentos[(agendamentos["dia_da_semana"] == dia) & (agendamentos["codigo_funcionario"] == codigo)]
+    agendamentos_dia = agendamentos_dia.sort_values(by="horario")
+    if agendamentos_dia.empty:
+        console.print("[yellow]Nenhum agendamento encontrado para este dia.[/yellow]")
+        return
+    console.print(f"[bold green]Agendamentos para o dia {dia}:[/bold green]")
+    agendamentos_painel = Text()
+    agendamentos_painel.append(f"--- Serviços agendados ---\n", style="light_goldenrod3")
+    for _, agendamento in agendamentos_dia.iterrows():
+        agendamentos_painel.append(f"\n        {agendamento['horario']} - {agendamento['codigo']}", style="bold green")
+    console.print(Panel(agendamentos_painel, title=f"Agendamentos para {dia}", border_style="light_pink3", padding=(0, 16)))
+    ver_detalhes = Confirm.ask("[dark_orange3]Deseja ir ver detalhes de um agendamento?[/dark_orange3]")
+    if ver_detalhes:
+        ver_agendamento()
+    
 def finalizar_servico():
     codigo = Prompt.ask("[light_goldenrod3]Informe o código do agendamento[/light_goldenrod3]")
     agendamentos = pd.read_csv("db/horarios.csv")
